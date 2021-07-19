@@ -1,17 +1,25 @@
-import Ionicons from 'react-native-vector-icons/Ionicons';
 import * as React from 'react';
-import { Text, View, Button } from 'react-native';
+import { Button, Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
+function DetailsScreen() {
+  return (
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <Text>Details!</Text>
+    </View>
+  );
+}
 
 function HomeScreen({ navigation }) {
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Home!</Text>
+      <Text>Home screen</Text>
       <Button
-        title="Go to Settings"
-        onPress={() => navigation.navigate('Settings')}
+        title="Go to Details"
+        onPress={() => navigation.navigate('Details')}
       />
     </View>
   );
@@ -20,9 +28,34 @@ function HomeScreen({ navigation }) {
 function SettingsScreen({ navigation }) {
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Settings!</Text>
-      <Button title="Go to Home" onPress={() => navigation.navigate('Home')} />
+      <Text>Settings screen</Text>
+      <Button
+        title="Go to Details"
+        onPress={() => navigation.navigate('Details')}
+      />
     </View>
+  );
+}
+
+const HomeStack = createStackNavigator();
+
+function HomeStackScreen() {
+  return (
+    <HomeStack.Navigator>
+      <HomeStack.Screen name="Home" component={HomeScreen} />
+      <HomeStack.Screen name="Details" component={DetailsScreen} />
+    </HomeStack.Navigator>
+  );
+}
+
+const SettingsStack = createStackNavigator();
+
+function SettingsStackScreen() {
+  return (
+    <SettingsStack.Navigator>
+      <SettingsStack.Screen name="Settings" component={SettingsScreen} />
+      <SettingsStack.Screen name="Details" component={DetailsScreen} />
+    </SettingsStack.Navigator>
   );
 }
 
@@ -41,11 +74,11 @@ export default function App() {
                 ? 'ios-information-circle'
                 : 'ios-information-circle-outline';
             } else if (route.name === 'Settings') {
-              iconName = focused ? 'ios-skull' : 'ios-list-box';
+              iconName = focused ? 'ios-list-box' : 'ios-list';
             }
 
             // You can return any component that you like here!
-            return <Ionicons name={iconName} color={color} size={size}  />;
+            return <Ionicons name={iconName} size={size} color={color} />;
           },
         })}
         tabBarOptions={{
@@ -53,8 +86,7 @@ export default function App() {
           inactiveTintColor: 'gray',
         }}
       >
-        {/*<Tab.Screen name="Home" component={HomeScreen} />*/}
-        <Tab.Screen name="Home" component={HomeScreen} options={{ tabBarBadge: 3 }} />
+        <Tab.Screen name="Home" component={HomeScreen} />
         <Tab.Screen name="Settings" component={SettingsScreen} />
       </Tab.Navigator>
     </NavigationContainer>
