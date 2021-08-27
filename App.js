@@ -6,10 +6,10 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
-const lang = ["Español", "English", "Français", "中国人"]
+const lang = ["Español", "English", "Français", "中国人"]//Languages in which the application will be available
 // const [state, setState] = useState(initalState);
 
-function LogInScreen({ navigation }) {
+function LogInScreen({ navigation }) { //Log in screen
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
 
@@ -51,7 +51,7 @@ function LogInScreen({ navigation }) {
     setState({ ...state, [curp]: value });
   };} */
 
-  function SignUpScreen({ navigation }) {
+  function SignUpScreen({ navigation }) {//Registration screen
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
 
@@ -72,7 +72,7 @@ function LogInScreen({ navigation }) {
     );
   }
 
-  function HomeScreen({ navigation }) {
+  function HomeScreen({ navigation }) {//Main screen showing information about the doses applied and the date when they were applied.
     return (
       <View>
 
@@ -90,7 +90,7 @@ function LogInScreen({ navigation }) {
     );
   }
 
-  const check = () => {
+  const check = () => {//Checkbox to be used in the main screen to keep track of the doses (does not work).
     const [isSelected, setSelection] = useState(false);
     return (
       <View style={styles.container}>
