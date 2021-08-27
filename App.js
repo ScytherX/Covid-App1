@@ -105,7 +105,7 @@ function LogInScreen({ navigation }) { //Log in screen
     );
   }
 
-  function SettingsScreen({ navigation }) {
+  function SettingsScreen({ navigation }) {//Configuration screen, where you can log out and change the language of the application.
     return (
       <View style={{
         justifyContent: 'center', alignItems: 'center', backgroundColor: '#ffffff',
@@ -140,7 +140,7 @@ function LogInScreen({ navigation }) { //Log in screen
 
   const HomeStack = createStackNavigator();
 
-  function HomeStackScreen() {
+  function HomeStackScreen() {//Hides headers and links components
     return (
       <HomeStack.Navigator screenOptions={{ headerShown: false }}>
         <HomeStack.Screen name="Hola" style={styles.txUpBar} component={HomeScreen} />
@@ -152,7 +152,7 @@ function LogInScreen({ navigation }) { //Log in screen
 
   const SettingsStack = createStackNavigator();
 
-  function SettingsStackScreen() {
+  function SettingsStackScreen() {//Hide header and link component
     return (
       <SettingsStack.Navigator screenOptions={{ headerShown: false }}>
         <SettingsStack.Screen name="Settings" component={SettingsScreen} />
@@ -164,7 +164,6 @@ function LogInScreen({ navigation }) { //Log in screen
 
   export default function App() {
 
-
     return (
       <NavigationContainer>
         <Tab.Navigator
@@ -173,11 +172,11 @@ function LogInScreen({ navigation }) { //Log in screen
               let iconName;
 
               if (route.name === 'Home') {
-                iconName = focused
+                iconName = focused//Icons that appear to access the home screen
                   ? 'ios-person-outline'
                   : 'ios-person-outline';
               } else if (route.name === 'Settings') {
-                iconName = focused
+                iconName = focused//Icons that appear to access the settings screen
                   ? 'cog-outline'
                   : 'cog-outline';
               }
@@ -185,19 +184,19 @@ function LogInScreen({ navigation }) { //Log in screen
               return <Ionicons name={iconName} size={size} color={color} />;
             },
           })}
-          tabBarOptions={{
+          tabBarOptions={{//Colors displayed when active or inactive
             activeTintColor: 'red',
             inactiveTintColor: 'black',
           }}
         >
-          <Tab.Screen name="Home" style={styles.view} component={HomeStackScreen} />
-          <Tab.Screen name="Settings" component={SettingsStackScreen} />
+          <Tab.Screen name="Home" style={styles.view} component={HomeStackScreen} />{/*Button to access the HomeScreen or also called the main screen.*/}
+          <Tab.Screen name="Settings" component={SettingsStackScreen} />{/*Button to access the SettingsScreen*/}
         </Tab.Navigator>
       </NavigationContainer>
     );
   }
 
-  const styles = StyleSheet.create({
+  const styles = StyleSheet.create({ //Styles that are used in the app
     txlog: {
       borderWidth: 2,
       borderRadius: 8,
