@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "127064253268",
+    "project_id": "cloudf-eeb17",
+    "storage_bucket": "cloudf-eeb17.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:127064253268:android:cf66baadbcb0cdb89a5ec1",
+        "android_client_info": {
+          "package_name": "com.tabnavigation"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "127064253268-t8ej7jv8bogneibkvuq7usev3gmuq0g7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC7QuYahqnUC3eUWiH-WGRhBvNVIlItwUc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "127064253268-t8ej7jv8bogneibkvuq7usev3gmuq0g7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
